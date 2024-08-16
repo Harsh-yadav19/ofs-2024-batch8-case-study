@@ -1,0 +1,83 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <!-- //input number -->
+
+
+  <oj-c-form-layout id="myform" columns="2" direction="row" max-columns="3" full-width="true">
+
+    <!-- text -->
+    <div>
+      <oj-c-input-text id="text-input" value="{{firstname}}" label-hint="Enter the first name"
+        label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{lastname}}" label-hint="Enter the last name"
+        label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-number id="number-input" value="{{salary}}" step="0"
+        label-hint="Enter the input number"></oj-c-input-number>
+
+
+
+      <oj-bind-text value="[[firstname]]"></oj-bind-text>
+      <oj-bind-text value="[[lastname]]"></oj-bind-text>
+      <oj-bind-text value="[[salary]]"> </oj-bind-text>
+    </div>
+
+    <!-- password -->
+    <div>
+      <oj-c-input-password value="{{passvalue}}" label-hint="Enter the password "></oj-c-input-password>
+
+
+      <br />
+
+      <oj-bind-text value="[[passvalue]]"> </oj-bind-text>
+    </div>
+
+    <!-- date time -->
+    <div>
+      <oj-label for="datepicker">Date Time Picker</oj-label>
+      <oj-date-time-picker id="datepicker" label-hint="Enter the date" value="{{datevalue}}"></oj-date-time-picker>
+
+      <br />
+
+      <span class="oj-label">Current component value is:</span>
+      <oj-bind-text value="[[datevalue]]"></oj-bind-text>
+    </div>
+    <!-- radio -->
+    <div>
+      <oj-c-radioset id="radiosetBasicDemoId" label-hint="Colors" label-edge="inside" options="[[colorOptions]]"
+        value="{{currentColor}}">
+      </oj-c-radioset>
+
+      <h2>
+        <oj-bind-text value="[[currentColor]]"></oj-bind-text>
+      </h2>
+    </div>
+
+    <!-- button -->
+
+    <div class="oj-panel oj-bg-neutral-30 demo-mypanel">
+      <oj-c-button id="button1" on-oj-action="[[buttonAction]]" label="Button Action 1"></oj-c-button>
+
+      <oj-c-button id="button2" on-oj-action="[[buttonAction2]]" label="Button Action 2" chroming="danger"></oj-c-button>
+
+
+      <p id="last" class="oj-typography-bold">
+        ID of last button to be activated:
+        <span id="results">
+          <oj-bind-text value="[[activatedButton]]"></oj-bind-text>
+        </span>
+      </p>
+    </div>
+
+  </oj-c-form-layout>
+
+
+
+  </h2>
+</div>
+</div>

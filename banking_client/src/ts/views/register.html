@@ -1,0 +1,43 @@
+<div class="oj-hybrid-padding">
+    <h1>Dashboard Content Area</h1>
+    <div>
+        To change the content of this section, you will make edits to the dashboard.html file located in the /ts/views
+        folder.
+    </div>
+    <h1>Registration - </h1>
+    <oj-c-form-layout id="formLayoutOptions" max-columns="6" direction="row" columns="3" full-width="true">
+        <oj-c-input-text id="text-input" value="{{firstname}}" label-hint="Enter the first name"
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-text id="text-input" value="{{lastname}}" label-hint="Enter the last name"
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-text id="text-input" value="{{username}}" label-hint="Enter the username"
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-text id="text-input" value="{{city}}" label-hint="Enter the city name"
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-text id="text-input" value="{{state}}" label-hint="Enter the state name"
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-text id="text-input" value="{{address}}" label-hint="Enter the add "
+            label-edge="inside"></oj-c-input-text>
+
+        <oj-c-input-number id="number-input" value="{{pin_code}}" step="0"
+            label-hint="Enter the pin code"></oj-c-input-number>
+
+
+        <oj-c-input-number id="number-input" value="{{phone}}" step="0"
+            label-hint="Enter the phone number"></oj-c-input-number>
+
+        <oj-c-input-number id="password-input" value="{{password}}" step="0"
+            label-hint="Enter the password"></oj-c-input-number>
+
+        <oj-c-input-text id="text-input" value="{{email}}" label-hint="Enter the email"
+            label-edge="inside"></oj-c-input-text>
+    </oj-c-form-layout>
+    <oj-c-button id="btn" on-oj-action="[[input_handler]]" label="submit" chroming="callToAction"></oj-c-button>
+
+
+</div>

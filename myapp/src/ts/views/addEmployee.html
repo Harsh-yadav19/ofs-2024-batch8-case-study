@@ -1,0 +1,37 @@
+<div class="oj-hybrid-padding">
+    <h1>Add employee</h1>
+
+    <div>
+        <oj-c-input-text id="text-input" value="{{name}}" label-hint="Enter the first name"
+            label-edge="inside"></oj-c-input-text>
+
+
+        <oj-c-input-number id="number-input" value="{{salary}}" step="0"
+            label-hint="Enter the input number"></oj-c-input-number>
+
+        <oj-c-button id="btn" on-oj-action="[[decision]]" label="submit"></oj-c-button>
+    </div>
+
+    <div>
+        <oj-table id="table" aria-label="Employee Table" accessibility.row-header="depName" data="[[dataprovider]]"
+            columns-default='{"sortable": "enabled"}' 
+            columns='[{"headerText": "Employee Id", "field": "id", "id": "depId"},
+                  {"headerText": "Employee Name", "field": "name", "id": "depName"},
+                  {"headerText": "salary", "field": "salary", "id": "manId"},
+                  {"headerText": "Action",
+                  "headerStyle": "text-align: center;",
+                  "style":"text-align: center; padding-top: 0px; padding-bottom: 0px;",
+                  "template": "actionTemplate",
+                  "id": "action"}
+                 ]' class="demo-table-container">
+
+            <template slot="actionTemplate" data-oj-as="cell">
+                <oj-c-button id="btn" :data-row-info="[[cell.row.id]]" on-oj-action="[[delete_handler]]" chroming="danger" label="delete"></oj-c-button>
+                <oj-c-button id="btn" :data-row-id="[[cell.row.id]]" :data-row-name="[[cell.row.name]]" :data-row-salary="[[cell.row.salary]]" on-oj-action="[[update_handler]]" chroming="callToAction" label="update"></oj-c-button>
+            </template>
+            
+        </oj-table>
+    </div>
+
+
+</div>

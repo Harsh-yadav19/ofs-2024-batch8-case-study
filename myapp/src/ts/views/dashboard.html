@@ -6,6 +6,7 @@
 <div class="oj-hybrid-padding">
   <!-- //input number -->
 
+  <my-component></my-component>
 
   <oj-c-form-layout id="myform" columns="2" direction="row" max-columns="3" full-width="true">
 
@@ -20,11 +21,15 @@
       <oj-c-input-number id="number-input" value="{{salary}}" step="0"
         label-hint="Enter the input number"></oj-c-input-number>
 
+      <oj-c-button id="input_btn" disabled="[[firstname()==null || lastname()==null || salary()==null]]"
+        on-oj-action="[[input_handler]]" label="submit"></oj-c-button>
 
+      <div id="datashow" style="visibility: hidden;">
+        <oj-bind-text value="[[firstname]]"></oj-bind-text>
+        <oj-bind-text value="[[lastname]]"></oj-bind-text>
+        <oj-bind-text value="[[salary]]"> </oj-bind-text>
+      </div>
 
-      <oj-bind-text value="[[firstname]]"></oj-bind-text>
-      <oj-bind-text value="[[lastname]]"></oj-bind-text>
-      <oj-bind-text value="[[salary]]"> </oj-bind-text>
     </div>
 
     <!-- password -->
@@ -63,7 +68,7 @@
     <div class="oj-panel oj-bg-neutral-30 demo-mypanel">
       <oj-c-button id="button1" on-oj-action="[[buttonAction]]" label="Button Action 1"></oj-c-button>
 
-      <oj-c-button id="button2" on-oj-action="[[buttonAction2]]" label="Button Action 2" chroming="danger"></oj-c-button>
+      <oj-c-button id="button2" on-oj-action="[[buttonAction2]]" label="Button Action 2"></oj-c-button>
 
 
       <p id="last" class="oj-typography-bold">
@@ -74,6 +79,48 @@
       </p>
     </div>
 
+    <div>
+
+      <oj-c-input-number id="number-input-forData" value="{{ID_user}}"
+        label-hint="Enter the Id of user"></oj-c-input-number>
+      <oj-c-button id="" on-oj-action="[[getdata]]" label="Get data"></oj-c-button>
+      <div>
+        <oj-c-progress-circle value="-1" style="visibility: hidden;" id="progressCircle"></oj-c-progress-circle>
+        <br />
+      </div>
+
+      <div id="button_getData" style="visibility: hidden;">
+        <h6>Name: <oj-bind-text value="[[Data_name]]"> </oj-bind-text></h6>
+        <h6>Id: <oj-bind-text value="[[Data_Id]]"> </oj-bind-text>
+        </h6>
+        <h6>username: <oj-bind-text value="[[Data_username]]"> </oj-bind-text></h6>
+        <h6>email: <oj-bind-text value="[[Data_email]]"> </oj-bind-text>
+        </h6>
+      </div>
+
+
+    </div>
+
+
+    <div>
+      <div>
+        <h1>List data </h1>
+      </div>
+      <oj-c-list-view aria-label="Basic list" data="[[dataProvider]]" id="listview">
+        <template slot="itemTemplate" data-oj-as="item">
+          <oj-c-list-item-layout>
+            <span class="oj-typography-body-md oj-text-color-primary">
+              <oj-bind-text value="[[item.item.data.name]]"></oj-bind-text>
+            </span>
+            <span slot="secondary" class="oj-typography-body-sm oj-text-color-secondary">
+              <oj-bind-text value="[[item.item.data.email]]"></oj-bind-text>
+            </span>
+          </oj-c-list-item-layout>
+        </template>
+      </oj-c-list-view>
+      <oj-c-button id="" on-oj-action="[[getlistdata]]" label="Get data"></oj-c-button>
+
+    </div>
   </oj-c-form-layout>
 
 
